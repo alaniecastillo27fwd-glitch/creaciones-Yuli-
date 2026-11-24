@@ -1,0 +1,27 @@
+:root {
+  /* Paleta oficial Creaciones Yuli */
+  --color-turquesa: #1abc9c;
+  --color-turquesa-oscuro: #148f77;
+  --color-fucsia: #e91e63;
+  --color-fucsia-claro: #f48fb1;
+  --color-beige: #fdf6ec;
+  --color-beige-acento: #f3e5ab;
+
+  /* Neutros y tipografía */
+  --color-texto: #2c3e50;
+  --color-blanco: #ffffff;
+  --fuente-principal: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --radio-borde: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  background-color: var(--color-beige);
+  color: var(--color-texto);
+}
