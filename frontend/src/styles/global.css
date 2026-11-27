@@ -1,0 +1,240 @@
+@import './variables.css';
+
+/* ============================================================================
+   1. RESET LIMPIO Y BASE DE DOCUMENTO (60% BEIGE CREMA + TEXTO CARBÓN CÁLIDO)
+   ============================================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-beige-crema);
+  color: var(--color-carbon-calido);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-turquesa-principal);
+  text-decoration: none;
+  font-weight: var(--weight-semibold);
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-turquesa-profundo);
+}
+
+/* ============================================================================
+   2. JERARQUÍA TIPOGRÁFICA (H1 DISPLAY PACIFICO, H2-H3 MALI)
+   ============================================================================ */
+h1,
+.text-display {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-h1-desktop);
+  line-height: var(--leading-h1);
+  color: var(--color-turquesa-profundo);
+  margin-bottom: var(--space-sm);
+}
+
+h2 {
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-h2);
+  line-height: var(--leading-heading);
+  color: var(--color-turquesa-principal);
+  margin-bottom: var(--space-sm);
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-h3);
+  line-height: var(--leading-heading);
+  color: var(--color-turquesa-profundo);
+  margin-bottom: var(--space-xs);
+}
+
+p {
+  margin-bottom: var(--space-sm);
+}
+
+.subtitle-emphasis {
+  color: var(--color-fucsia-frambuesa);
+  font-weight: var(--weight-semibold);
+}
+
+.text-metadata {
+  color: var(--color-beige-tostado);
+  font-size: var(--text-legal);
+}
+
+.text-legal {
+  font-family: var(--font-body);
+  font-size: var(--text-legal);
+  line-height: 1.45;
+  color: var(--color-carbon-calido);
+}
+
+@media (max-width: 768px) {
+  h1,
+  .text-display {
+    font-size: var(--text-h1-mobile);
+  }
+}
+
+/* ============================================================================
+   3. BOTONES OFICIALES (PRIMARIO FUCSIA CTA 10% | SECUNDARIO TURQUESA 30%)
+   ============================================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-family: var(--font-body);
+  font-size: var(--text-button);
+  font-weight: var(--weight-bold);
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Botón Primario CTA (Cotizar, Pedir, Confirmar) */
+.btn-primary {
+  background-color: var(--color-fucsia-vibrante);
+  color: var(--color-beige-crema);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: var(--color-fucsia-frambuesa);
+  color: var(--color-beige-crema);
+}
+
+/* Botón Secundario (Navegación, Filtros, Acciones de soporte) */
+.btn-secondary {
+  background-color: var(--color-turquesa-principal);
+  color: var(--color-beige-crema);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background-color: var(--color-turquesa-profundo);
+  color: var(--color-beige-crema);
+}
+
+/* Botón Contorno Turquesa */
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--color-turquesa-principal);
+  color: var(--color-turquesa-principal);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-turquesa-niebla);
+  border-color: var(--color-turquesa-profundo);
+  color: var(--color-turquesa-profundo);
+}
+
+/* ============================================================================
+   4. TARJETAS, DIVISORES, ETIQUETAS Y CONTENEDORES BASE
+   ============================================================================ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.card {
+  background-color: var(--color-beige-crema);
+  border: var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--color-turquesa-agua);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card-info {
+  background-color: var(--color-turquesa-niebla);
+  border: 1px solid var(--color-turquesa-agua);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.card-promo {
+  background-color: var(--color-rosa-petalo);
+  border: 1px solid var(--color-rosa-fucsia-suave);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.divider {
+  border: 0;
+  border-top: var(--divider-subtle);
+  margin: var(--space-md) 0;
+}
+
+.divider-festive {
+  border: 0;
+  border-top: 2px solid var(--color-rosa-fucsia-suave);
+  margin: var(--space-md) 0;
+}
+
+.badge-festive {
+  display: inline-block;
+  background-color: var(--color-rosa-petalo);
+  color: var(--color-fucsia-frambuesa);
+  border: 1px solid var(--color-rosa-fucsia-suave);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.65rem;
+  font-size: var(--text-legal);
+  font-weight: var(--weight-semibold);
+}
+
+.badge-turquoise {
+  display: inline-block;
+  background-color: var(--color-turquesa-niebla);
+  color: var(--color-turquesa-profundo);
+  border: 1px solid var(--color-turquesa-agua);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.65rem;
+  font-size: var(--text-legal);
+  font-weight: var(--weight-semibold);
+}

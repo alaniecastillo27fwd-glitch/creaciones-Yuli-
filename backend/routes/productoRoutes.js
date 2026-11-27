@@ -1,8 +1,77 @@
 import { Router } from 'express';
-import { listarProductos } from '../controllers/productoController.js';
+import {
+  listarCategorias,
+  crearCategoria,
+  actualizarCategoria,
+  eliminarCategoriaLogico,
+  listarProductos,
+  obtenerProductoPorId,
+  crearProducto,
+  actualizarProducto,
+  eliminarProductoLogico
+} from '../controllers/productoController.js';
+import { authJWT } from '../middlewares/authJWT.js';
+import { checkRole } from '../middlewares/checkRole.js';
+import { validateProducto, validateCategoria } from '../middlewares/validators.js';
 
-const router = Router();
+export const categoriaRouter = Router();
+const productoRouter = Router();
 
-router.get('/', listarProductos);
+// =============================================================================
+// RUTAS DE CATEGORÍAS (/api/categorias)
+// =============================================================================
+categoriaRouter.get('/', listarCategorias);
 
-export default router;
+categoriaRouter.post(
+  '/',
+  authJWT,
+  checkRole(['Administrador', 'Colaborador']),
+  validateCategoria,
+  crearCategoria
+);
+
+categoriaRouter.put(
+  '/:id',
+  authJWT,
+  checkRole(['Administrador', 'Colaborador']),
+  validateCategoria,
+  actualizarCategoria
+);
+
+categoriaRouter.delete(
+  '/:id',
+  authJWT,
+  checkRole(['Administrador', 'Colaborador']),
+  eliminarCategoriaLogico
+);
+
+// =============================================================================
+// RUTAS DE PRODUCTOS (/api/productos)
+// =============================================================================
+productoRouter.get('/', listarProductos);
+productoRouter.get('/:id', obtenerProductoPorId);
+
+productoRouter.post(
+  '/',
+  authJWT,
+  checkRole(['Administrador', 'Colaborador']),
+  validateProducto,
+  crearProducto
+);
+
+productoRouter.put(
+  '/:id',
+  authJWT,
+  checkRole(['Administrador', 'Colaborador']),
+  validateProducto,
+  actualizarProducto
+);
+
+productoRouter.delete(
+  '/:id',
+  authJWT,
+  checkRole(['Administrador', 'Colaborador']),
+  eliminarProductoLogico
+);
+
+export default productoRouter;
